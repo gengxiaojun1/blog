@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Sass的表达式和控制命令 @each 篇 + @while 篇 | mR.耿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="mR.耿">
+	<img src="/favicon.png" alt="mR.耿"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      Sass的表达式和控制命令 @each 篇 + @while 篇
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h3 id="each指令形式"><a href="#each指令形式" class="headerlink" title="@each指令形式:"></a>@each指令形式:</h3><p><em>@each 指令同样可以用于循环输出，和 @for 的差别在于，@each 通过遍历 list 或者 map 实现循环输出:</em></p>
+<ul>
+<li><p>list: 指列表</p>
+</li>
+<li><p>map: 可以包含若干值的对象类型,使用()包围一个map，里面的键值用逗号隔开，键和值可以是任何的Sass数据类型，尽管一个值可以用在多个键上，但是通过一个键我们必须只能找到一个值。<br><strong>注</strong>: <code>map不能直接在css中使用,如果把一个map赋值给一个元素会报错。</code></p>
+</li>
+</ul>
+<p><em>奉上一段例子!</em></p>
+<ul>
+<li><strong>list:</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@each $usr in a, b, c, d &#123;</div><div class="line">    .#&#123;$usr&#125;-images &#123;</div><div class="line">        background-image: url(&apos;/img/#&#123;$usr&#125;.png&apos;);</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>@each 后面的 $usr 变量用于保存每次遍历到的元素，然后使用差值语法（#{var}）来拼接正确的图片路径编译后的结果:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.a-images &#123;</div><div class="line">  background-image: url(&quot;/img/a.png&quot;); &#125;</div><div class="line"></div><div class="line">.b-images &#123;</div><div class="line">  background-image: url(&quot;/img/b.png&quot;); &#125;</div><div class="line"></div><div class="line">.c-images &#123;</div><div class="line">  background-image: url(&quot;/img/c.png&quot;); &#125;</div><div class="line"></div><div class="line">.d-images &#123;</div><div class="line">  background-image: url(&quot;/img/d.png&quot;); &#125;</div></pre></td></tr></table></figure>
+<p><em>如果遍历的对象是 <code>一个</code> map，那么我们就可以使用两个变量来存储元素的 key 和 value，示例如下：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$params: ( usr1:a, usr2:b, usr3:c, usr4:d );</div><div class="line"></div><div class="line">@each $key, $usr in $params  &#123;</div><div class="line">    .#&#123;$usr&#125;-images &#123;</div><div class="line">        background-image: url(&apos;/img/#&#123;$usr&#125;.png&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>此外，针对多个列表的遍历，我们也可以使用多个参数来保存相应的元素:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$alt: alert, yellow, red;</div><div class="line"></div><div class="line">$sub: submit, white, green;</div><div class="line"></div><div class="line">$bck: back, blue, transparent;</div><div class="line"></div><div class="line">@each $type, $txt, $back in $alt,$sub,$bck &#123;</div><div class="line">  .#&#123;$type&#125;-button &#123;</div><div class="line">    color: $txt;</div><div class="line">    background-color: $back;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>编译结果如下:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.alert-button &#123;</div><div class="line">  color: yellow;</div><div class="line">  background-color: red; &#125;</div><div class="line"></div><div class="line">.submit-button &#123;</div><div class="line">  color: white;</div><div class="line">  background-color: green; &#125;</div><div class="line"></div><div class="line">.back-button &#123;</div><div class="line">  color: blue;</div><div class="line">  background-color: transparent; &#125;</div></pre></td></tr></table></figure>
+<h3 id="while指令"><a href="#while指令" class="headerlink" title="@while指令"></a>@while指令</h3><p><em>@while 指令也可以用于循环输出，它后面跟一个表达式，如果表达式结果为 false，则停止循环体。</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$x:1;</div><div class="line"></div><div class="line">@while $x &lt; 5 &#123;</div><div class="line">  .col-#&#123;$x&#125; &#123; width: 100/4 * $x +px;&#125;</div><div class="line">  $x: $x + 1;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p><em>编译结果为:</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.col-1 &#123;</div><div class="line">  width: 25px; &#125;</div><div class="line"></div><div class="line">.col-2 &#123;</div><div class="line">  width: 50px; &#125;</div><div class="line"></div><div class="line">.col-3 &#123;</div><div class="line">  width: 75px; &#125;</div><div class="line"></div><div class="line">.col-4 &#123;</div><div class="line">  width: 100px; &#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><em>我们用一个表达式来控制 @while 指令的执行，表达式中有一个变量 $x，该变量一方面用于插值计算，另一方面在循环体内执行累加，最终当 $x &lt; 13 的结果为 false 时，程序就会推出 @while 循环</em></p>
+</blockquote>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T17:32:50.273Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="sass-3" data-title="Sass的表达式和控制命令 @each 篇 + @while 篇" data-url="http://yoursite.com/2017/07/24/sass-3/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>mR.耿</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>

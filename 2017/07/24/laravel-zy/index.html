@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Laravel-RestfulAPI 资源控制器 | mR.耿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="mR.耿">
+	<img src="/favicon.png" alt="mR.耿"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      Laravel-RestfulAPI 资源控制器
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<blockquote>
+<p> laravel里有基本控制器和控制器路由。不过我们这里介绍另一种风格－－RESTFul。具体的RESTFul风格及其规范可参考这篇文章：理解RESTful架构</p>
+</blockquote>
+<h2 id="总结一下什么是RESTful架构："><a href="#总结一下什么是RESTful架构：" class="headerlink" title="总结一下什么是RESTful架构："></a>总结一下什么是RESTful架构：</h2><ul>
+<li>1.每一个URI代表一种资源；</li>
+<li>2.客户端和服务器之间，传递这种资源的某种表现层；</li>
+<li>3.客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”。</li>
+</ul>
+<h2 id="常见误区："><a href="#常见误区：" class="headerlink" title="常见误区："></a>常见误区：</h2><ul>
+<li>1.URI包含动词</li>
+<li>2.URI中加入版本号</li>
+</ul>
+<h2 id="下面我们重点讲解如何创建具有RESTFul风格的控制器"><a href="#下面我们重点讲解如何创建具有RESTFul风格的控制器" class="headerlink" title="下面我们重点讲解如何创建具有RESTFul风格的控制器"></a>下面我们重点讲解如何创建具有RESTFul风格的控制器</h2><h4 id="一-控制器生成"><a href="#一-控制器生成" class="headerlink" title="一. 控制器生成"></a>一. 控制器生成</h4><blockquote>
+<p>Laravel的资源控制器原生的支持了RESTful架构。其实laravel的资源控制器和其他控制器没什么直接区别，只是对控制器类的方法和结构略有规定，不过我们并不要手动创建资源控制器，我们可以利用laravel的命令行工具——artisan。</p>
+</blockquote>
+<p><b> 到laravel框架项目的根目录下，通过命令行输入命令：</b></p>
+<p><code>php artisan make:controller MyTestController</code></p>
+<p><b>注意:在laravel5.1中用php artisan生成的控制器会有默认的方法index、create、show、edit…等等;如果不需要默认的方法，可以通过命令行输入命令：</b></p>
+<p><code>php artisan make:controller MyTestController –plain</code></p>
+<p><b>laravel5.2以后生成控制器是默认没有index、create、show、edit..等几个方法的，如果想生成默认的方法 可以在laravel框架根目录下，通过命令行输入命令</b></p>
+<p><code>php artisan make:controller MyTestController –resource</code></p>
+<p><b>就可以创建一个名为MyTestController的资源控制器，文件默认在app/Http/Controllers下。我们打开MyTestController.php，发现里面已经写好了许多方法，比如index、create、show等等。分别是什么意思？如何在路由定义才能访问到？</b></p>
+<h4 id="我们如果要在路由里定义一个资源控制器只需要一条："><a href="#我们如果要在路由里定义一个资源控制器只需要一条：" class="headerlink" title="我们如果要在路由里定义一个资源控制器只需要一条："></a>我们如果要在路由里定义一个资源控制器只需要一条：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Route::resource(&apos;/test&apos;, &apos;MyTestController&apos;);</div></pre></td></tr></table></figure>
+<h3 id="二-下面介绍下RESTful的跳转规则"><a href="#二-下面介绍下RESTful的跳转规则" class="headerlink" title="二 .下面介绍下RESTful的跳转规则:"></a>二 .下面介绍下RESTful的跳转规则:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">请求URL: /test  </div><div class="line">请求方式:GET  </div><div class="line">默认进入控制器的方法:index()  </div><div class="line">一般用于:页面展示/列表展示</div><div class="line"></div><div class="line">请求URL: /test/creation</div><div class="line">请求方式:GET  </div><div class="line">默认进入控制器的方法:create()  </div><div class="line">一般用于:添加/新建</div><div class="line"></div><div class="line">请求URL: /test  </div><div class="line">请求方式:POST  </div><div class="line">默认进入控制器的方法:store()</div><div class="line"></div><div class="line">请求URL: /test/&#123;id&#125;/edit  例如: /test/1/edit</div><div class="line">请求方式:GET  </div><div class="line">默认进入控制器的方法:edit($id)</div><div class="line">一般用于:修改页面</div><div class="line"></div><div class="line">请求URL: /test/&#123;id&#125;  </div><div class="line">请求方式:PUT  </div><div class="line">PUT方法需要定义一个隐藏表单  </div><div class="line">&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;/&gt;  </div><div class="line">默认进入控制器的方法:update($id)</div><div class="line">一般用于:接收修改的方法</div><div class="line"></div><div class="line">请求URL: /test/&#123;id&#125;  </div><div class="line">请求方式:GET  </div><div class="line">默认进入控制器的方法:show($id)</div><div class="line">一般用于:XX详情</div><div class="line"></div><div class="line">请求URL: /test/&#123;id&#125;  </div><div class="line">请求方式:DELETE</div></pre></td></tr></table></figure>
+<h3 id="PUT方法需要定义一个隐藏表单"><a href="#PUT方法需要定义一个隐藏表单" class="headerlink" title="PUT方法需要定义一个隐藏表单"></a>PUT方法需要定义一个隐藏表单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;DELETE&quot;/&gt;</div></pre></td></tr></table></figure>
+<p><b> 默认进入控制器的方法:destroy($id)<br>一般用于:删除<br>备注：{id}是一个变动的数字,delete()使用要慎用，一般不会去删除数据库数据，而是通过将数据的状态进行修改以此来区分是否删除。</b></p>
+<p><b>  表单伪造 HTML 表单不支持 PUT、PATCH 或者 DELETE 请求方法，因此，当定义 PUT、PATCH 或 DELETE 路由时，需要添加一个隐藏的 _method 字段到表单中，其值被用作该表单的 HTTP 请求方法：</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;/foo/bar&quot; method=&quot;POST&quot;&gt;  </div><div class="line">    &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;</div><div class="line">    &lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;&#123;&#123; csrf_token() &#125;&#125;&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<p><b>大概举两条解释。 我定义了个资源路由</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Route::resource(&apos;/test&apos;, &apos;MyTestController&apos;);</div></pre></td></tr></table></figure>
+<ul>
+<li>当我访问地址<a href="http://www.liutao1995.top/test，相当于访问控制器MyTestController的index方法。" target="_blank" rel="external">http://www.liutao1995.top/test，相当于访问控制器MyTestController的index方法。</a></li>
+<li>当我访问地址<a href="http://www.liutao1995.top/test/creation，就会访问到create方法。" target="_blank" rel="external">http://www.liutao1995.top/test/creation，就会访问到create方法。</a></li>
+<li>当我通过POST提交数据至地址<a href="http://www.liutao1995.top/test，相当于由store方法处理。" target="_blank" rel="external">http://www.liutao1995.top/test，相当于由store方法处理。</a></li>
+<li><p>现在理解了吗？通过资源控制器，我们很容易实现一个符合RESTful架构的接口，这种很适合作为APP后端开发时使用。这种规范下，不但访问策略清晰易理解，更容易维护。也使你的架构更为合理和现代化。 简单举例如果在路由中全部定义</p>
+<pre><code>Route::get(&apos;/test&apos;, &apos;MyTestController&apos;);  
+Route::post(&apos;/test&apos;, &apos;MyTestController&apos;);  
+Route::get(&apos;/testEdit&apos;, &apos;MyTestController@edit&apos;);  
+Route::post(&apos;/testUp&apos;, &apos;MyTestController@up&apos;);  
+Route::controller(&apos;/addTest&apos;,&apos;MyTestController&apos;);  
+</code></pre><blockquote>
+<p>和Restful写法(写一个路由可以包含很多种动作,当然有些特定方法不够用的时候也得指定方法)会让臃肿的路由更加简易</p>
+</blockquote>
+<pre><code>Route::resource(&apos;/test&apos;, &apos;TestController&apos;);  
+Route::resource(&apos;/test_blog&apos;, &apos;TestController@blog&apos;);
+</code></pre></li>
+</ul>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T17:25:25.780Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="laravel-zy" data-title="Laravel-RestfulAPI 资源控制器" data-url="http://yoursite.com/2017/07/24/laravel-zy/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>mR.耿</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>

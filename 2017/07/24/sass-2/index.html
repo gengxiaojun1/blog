@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Sass的表达式和控制命令 @for 篇 | mR.耿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="mR.耿">
+	<img src="/favicon.png" alt="mR.耿"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      Sass的表达式和控制命令 @for 篇
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h3 id="for"><a href="#for" class="headerlink" title="@for"></a>@for</h3><p><em><code>@for</code>指令常用于循环输出。</em></p>
+<p><code>@for</code> 有两种使用方式:<code>from start through end</code>和<code>from start to end</code>,<br>两者的区别在于，前者遍历的范围是 [start, end], 而后者的遍历范围是 [start, end-1]。在<code>@for</code>循环中使用一个固定变量来替代遍历到的元素。如果你想实现从大到小的遍历，只需让 start 大于 end 即可。或者可以这样来理解</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@for $i from &lt;start&gt; through &lt;end&gt;</div><div class="line">@for $i from &lt;start&gt; to &lt;end&gt;</div><div class="line"></div><div class="line"> $i 表示变量</div><div class="line"> start 表示起始值</div><div class="line"> end 表示结束值</div><div class="line"> 这两个的区别是关键字through表示包括end这个数，而to则不包括end这个数。</div><div class="line"> 从 &lt;start&gt; 开始循环，到 &lt;end&gt; 结束</div></pre></td></tr></table></figure>
+<p><em>给个例子理解下!:</em></p>
+<p><em>through:</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@for $i from 1 through 3&#123;</div><div class="line">  .item-#&#123;$i&#125; &#123;width: 2em * $i;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><em>编译结果如下:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.item-1 &#123;</div><div class="line">  width: 2em; &#125;</div><div class="line"></div><div class="line">.item-2 &#123;</div><div class="line">  width: 4em; &#125;</div><div class="line"></div><div class="line">.item-3 &#123;</div><div class="line">  width: 6em; &#125;</div></pre></td></tr></table></figure>
+<p><strong>从 <code>start</code>开始（此处示例是1），一直遍历到 <code>end</code> (此处示例是3) 包括<code>end</code>的值。</strong></p>
+<p><em>to:</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@for $i from 1 to 3&#123;</div><div class="line">  .item-#&#123;$i&#125;&#123;width: 2em * $i;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>编译结果如下:</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.items-1 &#123;</div><div class="line">  width: 2em; &#125;</div><div class="line"></div><div class="line">.items-2 &#123;</div><div class="line">  width: 4em; &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>循环从 <code>start</code>开始，一直遍历循环到<code>end</code> 结束。这种形式的循环只要碰到 <code>end</code> 就会停止循环（将不会遍历<code>end</code>  值）。</strong></p>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T17:31:58.910Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="sass-2" data-title="Sass的表达式和控制命令 @for 篇" data-url="http://yoursite.com/2017/07/24/sass-2/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>mR.耿</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>

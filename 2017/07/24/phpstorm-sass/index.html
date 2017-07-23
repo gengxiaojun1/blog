@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>archive_a | mR.耿</title>
+    <title>phpstorm 配置sass　自动编译css | mR.耿</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -69,86 +69,67 @@
 <!--文章列表-->
 <div class="wrapper">
   
-    <ul class="posts-list mb+ js-posts">
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-            <i class="post-status iconfont icon-icon"></i>  
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-4/">如何在laravel 项目中运用基于bootstrap Sass文件结构 编译自己的Sass文件</a></span>
-            <time class="post-time" datetime="2017-07-23T18:09:44.168Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/Animate/">Animate.css</a></span>
-            <time class="post-time" datetime="2017-07-23T18:07:11.206Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-3/">Sass的表达式和控制命令 @each 篇 + @while 篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:32:50.273Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-2/">Sass的表达式和控制命令 @for 篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:31:58.910Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-1/">Sass的表达式和控制命令　if篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:30:49.084Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-    </ul>
-    
-      <div class="pagination mb+ js-pagination">
-        <div class="js-next pagination__load">
-            <a href="/archives/page/2/"><i class="iconfont icon-next"></i></a></div>
-        </div>
-    </div>
-    
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      phpstorm 配置sass　自动编译css
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h5 id="1-点击phpstorm-左上角-File-gt-Settings进入后点击-gt-File-watchers-如下"><a href="#1-点击phpstorm-左上角-File-gt-Settings进入后点击-gt-File-watchers-如下" class="headerlink" title="1. 点击phpstorm 左上角 File-&gt;Settings进入后点击-&gt;File-watchers 如下"></a>1. 点击phpstorm 左上角 File-&gt;Settings进入后点击-&gt;File-watchers 如下</h5><p><img src="http://upload-images.jianshu.io/upload_images/5982972-b62671121f792910.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="file.png"></p>
+<h5 id="2-点击右上角绿色的-号创建一个sass-如下"><a href="#2-点击右上角绿色的-号创建一个sass-如下" class="headerlink" title="2. 点击右上角绿色的+号创建一个sass　如下"></a>2. 点击右上角绿色的+号创建一个sass　如下</h5><p><img src="http://upload-images.jianshu.io/upload_images/5982972-b7d9f35c6105ead4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sass.png"></p>
+<p><em>最后一步　点击ok完成操作</em></p>
+<p> <em>现在可以去编译你的sass啦　自动编译生成css　在当前目录下</em></p>
+<h5 id="指定OutPut路径"><a href="#指定OutPut路径" class="headerlink" title="指定OutPut路径"></a>指定OutPut路径</h5><blockquote>
+<p><em>默认是在当前目录下</em></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Arguments:　--no-cache --update $FileName$**填写你的路径**:$FileNameWithoutExtension$.css</div></pre></td></tr></table></figure>
+<blockquote>
+<p> 注! 配置前需要先安装ruby 和sass</p>
+</blockquote>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T17:29:57.825Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="phpstorm-sass" data-title="phpstorm 配置sass　自动编译css" data-url="http://yoursite.com/2017/07/24/phpstorm-sass/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
 
   
 </div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
 
 
 

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Animate.css | mR.耿</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="mR.耿">
+	<img src="/favicon.png" alt="mR.耿"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      Animate.css
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<p><strong>Animate.css是一个有趣的，跨浏览器的css3动画库。很值得我们在项目中引用。</strong></p>
+<p>插件描述: Animate.css内置了很多典型的css3动画，兼容性好使用方便。</p>
+<p> 　<a href="https://daneden.github.io/animate.css/" target="_blank" rel="external">Animate.css　官方网站</a></p>
+<p> 一. 基本用法</p>
+<p>1.在您的文档中包含样式表</p>
+<pre>
+< link  rel = “ stylesheet ”  href = “ animate.min.css ” >
+</pre>
+
+
+<blockquote>
+<p>或使用由CDNJS托管的版本</p>
+</blockquote>
+<p><small><br>&lt; head &gt;<br>  &lt; link rel = “stylesheet” href = “ <a href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css”" target="_blank" rel="external">https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css”</a> &gt;<br>&lt; /head &gt;<br></small><br>用法</p>
+<ol>
+<li>要在您的网站中使用animate.css，只需将样式表拖放到文档中<head>，<br>并将该类添加animated到元素，以及任何动画名称</head></li>
+</ol>
+<p>例　: <div class="animated bounce">弹跳效果</div></p>
+<p> 2.将类添加animated到要动画的元素中。您可能还希望将类包含在infinite无限循环中。</p>
+<p>例: <div class="animated infinite bounce">无限弹跳效果</div></p>
+<p> 注意 : 使用时动画名称前　必须加<b> animated </b>类方可生效<br> 最后，您需要添加以下类之一:</p>
+<h2 id="Attention-Seekers-注意力寻求者（9个）"><a href="#Attention-Seekers-注意力寻求者（9个）" class="headerlink" title=" Attention Seekers 注意力寻求者（9个）"></a> Attention Seekers 注意力寻求者（9个）</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bounce</td>
+<td style="text-align:left">弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">flash</td>
+<td style="text-align:left">闪</td>
+</tr>
+<tr>
+<td style="text-align:left">pulse</td>
+<td style="text-align:left">脉冲</td>
+</tr>
+<tr>
+<td style="text-align:left">rubberBand</td>
+<td style="text-align:left">橡皮筋</td>
+</tr>
+<tr>
+<td style="text-align:left">shake</td>
+<td style="text-align:left">摇</td>
+</tr>
+<tr>
+<td style="text-align:left">swing</td>
+<td style="text-align:left">摇摆</td>
+</tr>
+<tr>
+<td style="text-align:left">tada</td>
+<td style="text-align:left">波幅</td>
+</tr>
+<tr>
+<td style="text-align:left">wobble</td>
+<td style="text-align:left">摇晃</td>
+</tr>
+<tr>
+<td style="text-align:left">jello</td>
+<td style="text-align:left">果冻</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Bouncing Entrances 弹跳进入（5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bounceIn</td>
+<td style="text-align:left">向里，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceInDown</td>
+<td style="text-align:left">向里，向下,弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceInLeft</td>
+<td style="text-align:left">向里，向左,弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceInRight</td>
+<td style="text-align:left">向里，向右,弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceInUp</td>
+<td style="text-align:left">向里，向上，弹跳</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Bouncing Exits 弹跳出口（5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">bounceOut</td>
+<td style="text-align:left">向外，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceOutDown</td>
+<td style="text-align:left">向外，向下，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceOutLeft</td>
+<td style="text-align:left">向里，向左，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceOutRight</td>
+<td style="text-align:left">向外，向右，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">bounceOutUp</td>
+<td style="text-align:left">向外，各上，弹跳</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Fading Entrances 平淡进入（9个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fadeIn</td>
+<td style="text-align:left">向里</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInDown</td>
+<td style="text-align:left">向里，向下，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInDownBig</td>
+<td style="text-align:left">向里，向左，弹跳</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInLeft</td>
+<td style="text-align:left">向里，向左</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInLeftBig</td>
+<td style="text-align:left">向里，向左，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInRight</td>
+<td style="text-align:left">向里，向右</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInRightBig</td>
+<td style="text-align:left">向里，向右，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInUp</td>
+<td style="text-align:left">向里，向上</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeInUpBig</td>
+<td style="text-align:left">向里，向上，变大</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Fading Exits 平淡退场（9个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">fadeOut</td>
+<td style="text-align:left">向外</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutDown</td>
+<td style="text-align:left">向外，向下</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutDownBig</td>
+<td style="text-align:left">向外，向下，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutLeft</td>
+<td style="text-align:left">向外，向左</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutLeftBig</td>
+<td style="text-align:left">向外，向左，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutRight</td>
+<td style="text-align:left">向外，向右</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutRightBig</td>
+<td style="text-align:left">向外，向右，变大</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutUp</td>
+<td style="text-align:left">向外，向上</td>
+</tr>
+<tr>
+<td style="text-align:left">fadeOutUpBig</td>
+<td style="text-align:left">向外，向上，变大</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Flippers 翻动 （5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">flip</td>
+<td style="text-align:left">翻翻动转</td>
+</tr>
+<tr>
+<td style="text-align:left">flipInX</td>
+<td style="text-align:left">向里，上下，翻动</td>
+</tr>
+<tr>
+<td style="text-align:left">flipInY</td>
+<td style="text-align:left">向里，左右，翻动</td>
+</tr>
+<tr>
+<td style="text-align:left">flipOutX</td>
+<td style="text-align:left">向外，上下，翻动</td>
+</tr>
+<tr>
+<td style="text-align:left">flipOutY</td>
+<td style="text-align:left">向外，左右，翻动</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Lightspeed 缓缓移动 （2个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">lightSpeedIn</td>
+<td style="text-align:left">缓缓移入</td>
+</tr>
+<tr>
+<td style="text-align:left">lightSpeedOut</td>
+<td style="text-align:left">缓缓移出</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Rotating Entrances 翻转入口 （5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">rotateIn</td>
+<td style="text-align:left">向里，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateInDownLeft</td>
+<td style="text-align:left">向里，向下，向左，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateInDownRight</td>
+<td style="text-align:left">向里，向下，向右，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateInUpLeft</td>
+<td style="text-align:left">向里，向上，向左，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateInUpRight</td>
+<td style="text-align:left">向里，向上，向右，翻转</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Rotating Exits 翻转退场 （5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">rotateOut</td>
+<td style="text-align:left">向外，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateOutDownLeft</td>
+<td style="text-align:left">向外，向下，向右，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateOutDownRight</td>
+<td style="text-align:left">向外，向下，向右，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateOutUpLeft</td>
+<td style="text-align:left">向外，向上，向左，翻转</td>
+</tr>
+<tr>
+<td style="text-align:left">rotateOutUpRight</td>
+<td style="text-align:left">向外，向上，向右，翻转</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Specials （3个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">hinge</td>
+<td style="text-align:left">合页</td>
+</tr>
+<tr>
+<td style="text-align:left">rollIn</td>
+<td style="text-align:left">向里滚动</td>
+</tr>
+<tr>
+<td style="text-align:left">rollOut</td>
+<td style="text-align:left">向外滚动</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Zoom Entrances 缩放进入 （5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">zoomIn</td>
+<td style="text-align:left">向里，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomInDown</td>
+<td style="text-align:left">向里，向下，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomInLeft</td>
+<td style="text-align:left">向里，向左，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomInRight</td>
+<td style="text-align:left">向外，向右，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomInUp</td>
+<td style="text-align:left">向里，向上，放大</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Zoom Exits 缩放退场 （5个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">zoomOut</td>
+<td style="text-align:left">向外，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomOutDown</td>
+<td style="text-align:left">向外，向下，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomOutLeft</td>
+<td style="text-align:left">向外，向左，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomOutRight</td>
+<td style="text-align:left">向外，向右，放大</td>
+</tr>
+<tr>
+<td style="text-align:left">zoomOutUp</td>
+<td style="text-align:left">向外，向上，放大</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p> Sliding Entrances 滑动进入 （4个）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">slideInUp</td>
+<td style="text-align:left">向里，向上，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideInDown</td>
+<td style="text-align:left">向里，向下，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideInLeft</td>
+<td style="text-align:left">向里，向左，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideInRight</td>
+<td style="text-align:left">向里，向右，滑动</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Sliding Exits 滑动退场 （4个）\</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">样式</th>
+<th style="text-align:left">简介</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">slideOutUp</td>
+<td style="text-align:left">向外，向上，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideOutDown</td>
+<td style="text-align:left">向外，向下，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideOutLeft</td>
+<td style="text-align:left">向外，向上，滑动</td>
+</tr>
+<tr>
+<td style="text-align:left">slideOutRight</td>
+<td style="text-align:left">向外，向右，滑动</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>当您将其与jQuery组合或添加您自己的CSS规则时，您可以使用animate.css来完成一大堆其他内容.动态地使用jQuery轻松添加动画:</p>
+<p>$（’ #box ‘).addClass（’ animated bounceInRight ‘）;</p>
+<h5 id="您还可以检测动画结束的时间"><a href="#您还可以检测动画结束的时间" class="headerlink" title="您还可以检测动画结束的时间:"></a>您还可以检测动画结束的时间:</h5><p>您可以更改动画的持续时间，添加延迟或更改播放次数：</p>
+<p> #box{<br>   -vendor-animation-duration：3 s ;<br>  -vendor-animation-delay：2 秒 ;<br>  -vendor-animation-iteration-count：infinite ;<br>}</p>
+<h5 id="animation-delay-属性定义动画何时开始。-animation-delay-值以秒或毫秒计。"><a href="#animation-delay-属性定义动画何时开始。-animation-delay-值以秒或毫秒计。" class="headerlink" title="animation-delay 属性定义动画何时开始。 animation-delay 值以秒或毫秒计。"></a>animation-delay 属性定义动画何时开始。 animation-delay 值以秒或毫秒计。</h5><p><strong>提示: 允许负值，-2s 使动画马上开始，但跳过 2 秒进入动画.</strong></p>
+<p>例: 等待俩秒　开始动画<br>div<br>{<br>animation-delay:2s;<br>-webkit-animation-delay:2s; /<em> Safari 和 Chrome </em>/<br>}</p>
+<p><strong>关于Jquery中animate可以操作css样式属性总结</strong></p>
+<blockquote>
+<p>可以用 animate() 方法来操作所有 CSS 属性吗？是的，几乎可以！<br>不过，需要记住一件重要的事情:当使用 animate()时，必须使用 Camel 标记法书写所有的属性名，比如，必须使用 paddingLeft<br>而不是 padding-left，使用 marginRight而不是 margin-right，等等。</p>
+</blockquote>
+<p><strong>css中的不是所有属性都可以用jQuery动画（animate函数）来动态改变，下面总结了JQ可以操作元素的一些属性：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">* backgroundPosition</div><div class="line">   * borderWidth</div><div class="line">   * borderBottomWidth</div><div class="line">   * borderLeftWidth</div><div class="line">   * borderRightWidth</div><div class="line">   * borderTopWidth</div><div class="line">   * borderSpacing</div><div class="line">   * margin</div><div class="line">   * marginBottom</div><div class="line">   * marginLeft</div><div class="line">   * marginRight</div><div class="line">   * marginTop</div><div class="line">   * outlineWidth</div><div class="line">   * padding</div><div class="line">   * paddingBottom</div><div class="line">   * paddingLeft</div><div class="line">   * paddingRight</div><div class="line">   * paddingTop</div><div class="line">   * height</div><div class="line">   * width</div><div class="line">   * maxHeight</div><div class="line">   * maxWidth</div><div class="line">   * minHeight</div><div class="line">   * maxWidth</div><div class="line">   * font</div><div class="line">   * fontSize</div><div class="line">      在animate函数的css参数指定并不同于标准css属性，例如这个css标准是：font-size。同理上面很多也是这样的情况</div><div class="line">   * bottom</div><div class="line">   * left</div><div class="line">   * right</div><div class="line">   * top</div><div class="line">   * letterSpacing</div><div class="line">   * wordSpacing</div><div class="line">   * lineHeight</div><div class="line">   * textIndent</div><div class="line">   * opacity</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>小例子<em>animate 结合jQuery </em></strong></p>
+<blockquote>
+<ul>
+<li>让指定元素点击左右移动</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">$(&quot;#right&quot;).click(function () &#123;</div><div class="line">    $(&quot;.block&quot;).animate(&#123; left: &apos;+50px&apos; &#125;, &quot;slow&quot;);</div><div class="line">&#125;);</div><div class="line">$(&quot;#left&quot;).click(function () &#123;</div><div class="line">    $(&quot;.block&quot;).animate(&#123; left: &apos;-50px&apos; &#125;, &quot;slow&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>有不足之处,还请各位指出! 抱拳了,老铁!</p>
+</blockquote>
+<p> <a href="https://raw.github.com/daneden/animate.css/master/animate.css" target="_blank" rel="external">下载地址</a></p>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T18:07:11.206Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="Animate" data-title="Animate.css" data-url="http://yoursite.com/2017/07/24/Animate/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>mR.耿</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>

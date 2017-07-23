@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>archive_a | mR.耿</title>
+    <title>调用新浪接口查询IP地址 | mR.耿</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -69,86 +69,73 @@
 <!--文章列表-->
 <div class="wrapper">
   
-    <ul class="posts-list mb+ js-posts">
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-            <i class="post-status iconfont icon-icon"></i>  
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-4/">如何在laravel 项目中运用基于bootstrap Sass文件结构 编译自己的Sass文件</a></span>
-            <time class="post-time" datetime="2017-07-23T18:09:44.168Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/Animate/">Animate.css</a></span>
-            <time class="post-time" datetime="2017-07-23T18:07:11.206Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-3/">Sass的表达式和控制命令 @each 篇 + @while 篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:32:50.273Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-2/">Sass的表达式和控制命令 @for 篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:31:58.910Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-                <!--<div class="type">
-          <div class="mask">
-            <i class="iconfont"></i>
-          </div>
-          </div>-->
-        <li class="post">
-          
-          <h2 class="no-background"  >
-            <span><a href="/2017/07/24/sass-1/">Sass的表达式和控制命令　if篇</a></span>
-            <time class="post-time" datetime="2017-07-23T17:30:49.084Z" itemprop="datePublished">2017-07-24</time>
-          </h2>
-        </li>
-      
-    </ul>
-    
-      <div class="pagination mb+ js-pagination">
-        <div class="js-next pagination__load">
-            <a href="/archives/page/2/"><i class="iconfont icon-next"></i></a></div>
-        </div>
-    </div>
-    
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      调用新浪接口查询IP地址
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<p>新浪IP接口查询代码:</p>
+<script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+<script type="text/javascript">
+var i=remote_ip_info;
+document.write('IP范围:' + i['ret'] +  i['start'] +'-'+i['end'] + '\r\n<br />归属地:' + i['country'] + i['province'] + i['city'] + i['isp']);
+</script>
+
+<p>```</p>
+<blockquote>
+<p>1 183.128.0.0 183.129.255.255 中国 浙江 杭州 电信或者 1 -1 -1 中国 浙江 杭州</p>
+<p>第一个数字 1表示正常 -1表示内网，-2表示ip地址输入有误</p>
+<p>第二和第三个字段 表示这一段内的ip都是对应相同的ip地址信息</p>
+<p>第四个字段 表示所在国家</p>
+<p>第五个字段 表示所在省</p>
+<p>第六个字段 表示所在城市</p>
+<p>第七个字段  表示网络所属运营商</p>
+</blockquote>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-23T17:26:25.259Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="xinlang" data-title="调用新浪接口查询IP地址" data-url="http://yoursite.com/2017/07/24/xinlang/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
 
   
 </div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
 
 
 

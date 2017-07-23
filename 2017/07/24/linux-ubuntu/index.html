@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Hexo</title>
+    <title>LAMP 服务器搭建 ubuntu 16.04 篇 | mR.耿</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -19,8 +19,8 @@
   <body>
 
 <header>
-	<a id="logo" href="/" title="Hexo">
-	<img src="/favicon.png" alt="Hexo"></a>
+	<a id="logo" href="/" title="mR.耿">
+	<img src="/favicon.png" alt="mR.耿"></a>
 	
 	
 		<!--搜索栏-->
@@ -74,34 +74,45 @@
 	
   
     <h1 class="post-title" itemprop="name">
-      Hello World
+      LAMP 服务器搭建 ubuntu 16.04 篇
     </h1>
   
 
 	<div class='post-body mb'>
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+		<h2 id="1-更新源"><a href="#1-更新源" class="headerlink" title="1. 更新源"></a>1. 更新源</h2><pre><code>sudo apt-get update
+</code></pre><h2 id="2-Apache2-安装"><a href="#2-Apache2-安装" class="headerlink" title="2. Apache2 安装"></a>2. Apache2 安装</h2><pre><code>sudo apt-get install apache2
+查看状态： service apache2 status/start/stop/restart  
+Web目录： /var/www安装目录： /etc/apache2/
+全局配置： /etc/apache2/apache2.conf
+监听端口： /etc/apache2/ports.conf
+虚拟主机： /etc/apache2/sites-enabled/000-default.conf
+</code></pre><h3 id="amp-测试"><a href="#amp-测试" class="headerlink" title="&amp;测试"></a>&amp;测试</h3><p> <a href="在浏览器中输入：http://localhost或http：//127.0.0.1，可以看到下图：">在浏览器中输入：http://localhost或http：//127.0.0.1，可以看到下图：</a><br><img src="http://dajun.shop/images/4.png" alt="">  </p>
+<h2 id="3-PHP安装"><a href="#3-PHP安装" class="headerlink" title="3. PHP安装"></a>3. PHP安装</h2><h3 id="amp-安装代码"><a href="#amp-安装代码" class="headerlink" title="&amp;安装代码"></a>&amp;安装代码</h3><pre><code>sudo apt-get install php7.0
+// ubuntu16.04中没有php5了，直接装7吧
+ sudo apt-get install libapache2-mod-php7.0
+ // 配置APACHE+PHP7的
+ sudo /etc/init.d/apache2 restart
+ // 重启
+</code></pre><h3 id="测试php文件"><a href="#测试php文件" class="headerlink" title="测试php文件"></a>测试php文件</h3><p>在你的目录下建一个 test.php<br>输入代码，然后浏览器输入对应文件夹名字可以看到如下图<br>phpinfo();<br><img src="http://dajun.shop/images/5.png" alt="">  </p>
+<h2 id="4-MySql-安装"><a href="#4-MySql-安装" class="headerlink" title="4. MySql 安装"></a>4. MySql 安装</h2><h3 id="amp-安装代码-1"><a href="#amp-安装代码-1" class="headerlink" title="&amp;安装代码"></a>&amp;安装代码</h3><pre><code>sudo apt-get install mysql-server mysql-client
+// 安装时会要求输入mysql管理员密码，输入即可  
+</code></pre><h2 id="常用软件-安装"><a href="#常用软件-安装" class="headerlink" title="常用软件 安装"></a>常用软件 安装</h2><h3 id="1-SSH"><a href="#1-SSH" class="headerlink" title="1. SSH"></a>1. SSH</h3><pre><code>sudo apt-get installr openssh-server
+</code></pre><h3 id="2-Vim"><a href="#2-Vim" class="headerlink" title="2. Vim"></a>2. Vim</h3><pre><code>sudo apt-get installr vim
+</code></pre><h3 id="3-git"><a href="#3-git" class="headerlink" title="3. git"></a>3. git</h3><pre><code>sudo apt-get installr git
+</code></pre>
 	</div>
 	<div class="meta split">
 		
 			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
 		
-		<time class="post-date" datetime="2017-07-23T15:37:27.320Z" itemprop="datePublished">2017-07-23</time>
+		<time class="post-date" datetime="2017-07-23T17:22:33.337Z" itemprop="datePublished">2017-07-24</time>
 	</div>
 </article>
 
 <!--评论-->
 
 	
-<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2017/07/23/hello-world/"></div>
+<div class="ds-thread" data-thread-key="linux-ubuntu" data-title="LAMP 服务器搭建 ubuntu 16.04 篇" data-url="http://yoursite.com/2017/07/24/linux-ubuntu/"></div>
 <script type="text/javascript">
 
 var duoshuoQuery = {short_name:"yumemor"};
@@ -140,8 +151,8 @@ var duoshuoQuery = {short_name:"yumemor"};
 				<div class="media">
 					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
 					<div class="media__body">
-						<h4>Hexo</h4>
-						<p class='site-description'>null</p>
+						<h4>mR.耿</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
 					</div>
 				</div>
 				<div class="author-contact">
