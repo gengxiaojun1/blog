@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>使用Hexo+github 搭建自己的博客 | Mr.耿de Bolg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+  </head>
+
+  <body>
+
+<header>
+	<a id="logo" href="/" title="Mr.耿de Bolg">
+	<img src="/favicon.png" alt="Mr.耿de Bolg"></a>
+	
+	
+		<!--搜索栏-->
+		<i class="js-toggle-search iconfont icon-search"></i>
+
+
+<form class="js-search search-form search-form--modal" method="get" action="http://gushi.li" role="search">
+	<div class="search-form__inner">
+		<div>
+			<i class="iconfont icon-search"></i>
+			<input class="text-input" placeholder="Enter Key..." type="search">
+		</div>
+	</div>
+</form>
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/yumemor/" target="_blank">Weibo</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      使用Hexo+github 搭建自己的博客
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<p><strong>搭建博客前期准备工作</strong></p>
+<p>安装Node（必须）<br>作用:用来生成静态页面的</p>
+<p>到Node.js官网下载相应平台的最新版本，一路安装即可。</p>
+<p>安装Git:（必须）</p>
+<p>作用:把本地的hexo内容提交到github上去.</p>
+<p>申请GitHub（必须）</p>
+<p>作用：是用来做博客的远程创库、域名、服务器之类的，怎么与本地hexo建立连接等下讲。</p>
+<p>先来搭建一个github</p>
+<p>1.进入github 点击创建项目 如图:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5982972-fcad2c6da4d4b701.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建库.png"></p>
+<p> -1.输入你的库名,然后点击创建</p>
+<p> 如图:（创建后）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/5982972-3ff28afc89893358.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="库.png"></p>
+<p>1.把库文件克隆到本地项目中　依次按顺序输入<br> <pre>git clone <a href="https://github.com/gengxiaojun1/gxj.git" target="_blank" rel="external">https://github.com/gengxiaojun1/gxj.git</a></pre></p>
+<pre>
+echo "# gxj" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/gengxiaojun1/gxj.git
+git push -u origin master
+</pre>
+
+<p>2.现在库创建好了以后点击settings设置一直往下滑找到<code>github pages</code>,选择你的分支来源,例master||gh-pages,点击创建,主题先不要选,先往下走!</p>
+<pre> https://gengxiaojun1.github.io/gxj/</pre>
+
+<p>3.当然也可以自己买一个域名使用,Custom domain　下面就是设置自定义域名的地方.</p>
+<p>4.关于域名配置稍后更新!</p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><pre>npm install hexo-cli -g</pre>
+
+<p>1.输入以下命令查看Hexo的版本信息</p>
+<pre>
+hexo-cli: 1.0.3
+os: Linux 4.10.0-27-generic linux x64
+http_parser: 2.7.0
+node: 8.2.1
+v8: 5.8.283.41
+uv: 1.13.1
+zlib: 1.2.11
+ares: 1.10.1-DEV
+modules: 57
+openssl: 1.0.2l
+icu: 59.1
+unicode: 9.0
+cldr: 31.0.1
+tz: 2017b
+</pre>
+
+<p>2.初始化一个hexo博客</p>
+<pre>hexo init [项目名]</pre>
+3.安装依赖包
+<pre>npm install</pre>
+4.文件结构
+<pre>
+├── _config.yml
+├── node_modules
+├── package.json
+├── scaffolds
+├── source
+|   └── _posts
+└── themes
+</pre>
+
+<p>5.写一篇文章?</p>
+<pre>hexo new "hello"</pre>
+我们找到这个文件之后用Markdown编辑器或其他文本编辑器打开，我们会看到里面已经有内容了:
+<pre>
+---
+title: Hello
+date: 2017-7-24 17:00:00
+tags:
+---
+</pre>
+6.在---下面随便写点什么,保存
+7.文章写好了怎么看效果呢？输入这条命令!
+<pre>hexo generate　简写 hexo g</pre>
+8.页面预览下!
+<pre>hexo serve 简写 hexo s</pre>
+我们会看到这样一条提示:复制到浏览器看看
+<pre>
+INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</pre>
+
+<p>9.部署你的git,进入到_config.yml文件中,在最后填上如下代码</p>
+<pre>
+deploy:
+  type: git
+  repo: https://github.com/gengxiaojun1/gxj.git
+  branch: master
+</pre>
+10.找不到git部署?
+<pre>ERROR Deployer not found: git</pre>
+
+<p>解决办法</p>
+<pre>npm install hexo-deployer-git --save</pre>
+
+<p>命令大合集</p>
+<pre>
+简写
+hexo n "我的博客" == hexo new "我的博客" #新建文章
+hexo p == hexo publish
+hexo g == hexo generate#生成
+hexo s == hexo server #启动服务预览
+hexo d == hexo deploy#部署
+
+服务器
+hexo server #Hexo 会监视文件变动并自动更新，您无须重启服务器。
+hexo server -s #静态模式
+hexo server -p 5000 #更改端口
+hexo server -i 192.168.1.1 #自定义 IP
+
+hexo clean #清除缓存 网页正常情况下可以忽略此条命令
+hexo g #生成静态网页
+hexo d #开始部署
+</pre>
+
+<h1 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h1><p>1.如何更换主题呢?　真的是超级简单!</p>
+<p><code>hexo主题模板上找到你喜欢的把他clone 下来,放到themes目录里面,然后返回上一级去到,_config.yml里面　找到:theme: [模板文件名] 改完保存</code></p>
+<pre>
+hexo clean 清楚一下缓存
+hexo g 生成静态网页
+hexo s 预览一下
+hexo d 部署到github上面
+</pre>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2017-07-24T09:21:01.887Z" itemprop="datePublished">2017-07-24</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="hexo" data-title="使用Hexo+github 搭建自己的博客" data-url="http://yoursite.com/2017/07/24/hexo/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='http://oct8d1mqf.bkt.clouddn.com/2016-10-17-15%3A42%3A28.jpg' alt='John Doe'>
+					<div class="media__body">
+						<h4>Mr.耿de Bolg</h4>
+						<p class='site-description'>出处:简书:耿晓军</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/yumemor/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/yumemor" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/people/yumemor" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+		<span>Theme by <a href="http://github.com/yumemor">Yumemor</a>. Powered by <a href="http://hexo.io">Hexo</a></span>
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>-->
+	<script src="/js/lib.js"></script>
+	<script src="/js/google-code-prettify/prettify.js"></script>
+	<script src="/js/module.js"></script>
+	<script src="/js/script.js"></script>
+	
+		<script async src="http://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
