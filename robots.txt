@@ -1,0 +1,2 @@
+Sitemap: http://www.dajun.shop/sitemap.xml
+Sitemap: http://www.dajun.shop/baidusitemap.xml

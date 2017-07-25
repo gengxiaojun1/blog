@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Atom 编辑器 Markdown书写快捷键 | Mr.耿de Bolg</title>
+    <title>调用新浪接口查询IP地址 | Mr.耿de Bolg</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -66,55 +66,42 @@
 	
   
     <h1 class="post-title" itemprop="name">
-      Atom 编辑器 Markdown书写快捷键
+      调用新浪接口查询IP地址
     </h1>
   
 
 	<div class='post-body mb'>
-		<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h4 id="Markdown-的目标是实现「易读易写」。"><a href="#Markdown-的目标是实现「易读易写」。" class="headerlink" title="Markdown 的目标是实现「易读易写」。"></a>Markdown 的目标是实现「易读易写」。</h4><blockquote>
-<p>Markdown 的语法全由一些符号所组成，这些符号经过精挑细选，其作用一目了然。比如：在文字两旁加上星号，看起来就像强调。Markdown 的列表看起来，嗯，就是列表。Markdown 的区块引用看起来就真的像是引用一段文字，就像你曾在电子邮件中见过的那样。</p>
+		<p>新浪IP接口查询代码:</p>
+<script type="text/javascript" src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
+<script type="text/javascript">
+var i=remote_ip_info;
+document.write('IP范围:' + i['ret'] +  i['start'] +'-'+i['end'] + '\r\n<br />归属地:' + i['country'] + i['province'] + i['city'] + i['isp']);
+</script>
+
+<p>```</p>
+<blockquote>
+<p>1 183.128.0.0 183.129.255.255 中国 浙江 杭州 电信或者 1 -1 -1 中国 浙江 杭州</p>
+<p>第一个数字 1表示正常 -1表示内网，-2表示ip地址输入有误</p>
+<p>第二和第三个字段 表示这一段内的ip都是对应相同的ip地址信息</p>
+<p>第四个字段 表示所在国家</p>
+<p>第五个字段 表示所在省</p>
+<p>第六个字段 表示所在城市</p>
+<p>第七个字段  表示网络所属运营商</p>
 </blockquote>
-<ul>
-<li><p>加粗文字 : <strong>b</strong></p>
-</li>
-<li><p>代码: <strong>c</strong></p>
-</li>
-<li><p>斜体:<strong> i</strong></p>
-</li>
-<li><p>图像:<strong> img</strong></p>
-</li>
-<li><p>链接: <strong>l</strong></p>
-</li>
-<li><p>版权声明: <strong>legal</strong></p>
-</li>
-<li><p>填充文字: <strong>lorem</strong></p>
-</li>
-<li><p>引用编号代码格式:<strong>ref</strong></p>
-</li>
-<li><p>外联引用指定编号的链接:<strong> rl</strong></p>
-</li>
-<li><p>外联引用指定编号图片: <strong>rimg</strong></p>
-</li>
-<li><p>todo列表 :<strong>t</strong></p>
-</li>
-<li><p>表格：<strong> table</strong></p>
-</li>
-</ul>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>请安装<strong>autocomplete-plus</strong>插件，安装方式请参考 <a href="http://xiaomiwujiecao.com/page/459.html" target="_blank" rel="external">ATOM推荐插件</a></p>
 
 	</div>
 	<div class="meta split">
 		
 			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
 		
-		<time class="post-date" datetime="2017-07-24T10:37:47.527Z" itemprop="datePublished">2017-07-24</time>
+		<time class="post-date" datetime="2017-07-25T07:28:03.423Z" itemprop="datePublished">2017-07-25</time>
 	</div>
 </article>
 
 <!--评论-->
 
 	
-<div class="ds-thread" data-thread-key="atome-kj" data-title="Atom 编辑器 Markdown书写快捷键" data-url="http://www.dajun.shop/2017/07/24/atome-kj/"></div>
+<div class="ds-thread" data-thread-key="xinlang" data-title="调用新浪接口查询IP地址" data-url="http://www.dajun.shop/2017/07/25/xinlang/"></div>
 <script type="text/javascript">
 
 var duoshuoQuery = {short_name:"yumemor"};
